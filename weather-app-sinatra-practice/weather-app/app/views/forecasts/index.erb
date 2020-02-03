@@ -1,0 +1,7 @@
+these are the forecasts
+<% @forecasts.each do |forecast| %> 
+    <p><%=forecast.day%></p>
+    <p><%=forecast.location%></p>
+<% end %>
+    
+<!-- iterate over the forecasts and display info about each -->
