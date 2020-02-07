@@ -1,0 +1,2 @@
+class HedgehogsController < ApplicationController
+end

@@ -1,0 +1,3 @@
+class GeeseController < ApplicationController
+
+end
