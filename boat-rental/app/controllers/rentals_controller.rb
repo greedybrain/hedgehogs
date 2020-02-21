@@ -4,6 +4,10 @@ class RentalsController < ApplicationController
         @rental = Rental.new
     end
 
+    def index
+        @rental = Rental.first
+    end
+
     def create
     end
 
