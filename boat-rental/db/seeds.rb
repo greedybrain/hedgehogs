@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+skip = Boat.create(name: "Barking Dog", boat_type: "skipper", port: "New Orleans")
+customer = Customer.create(name: "Jared", destination: "Mexico")
+rental = Rental.create(customer_id: customer.id, boat_id: skip.id, rental_date: Time.now)

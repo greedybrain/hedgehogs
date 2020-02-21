@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_003453) do
+ActiveRecord::Schema.define(version: 2020_02_21_005858) do
 
   create_table "boats", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "boat_type"
     t.string "port"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_003453) do
     t.integer "boat_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "rental_date"
   end
 
 end

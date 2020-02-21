@@ -99,3 +99,88 @@ Entrypoint application = js/application-bbe9c4a129ab949e0636.js js/application-b
 Completed 200 OK in 4406ms (Views: 4389.9ms | ActiveRecord: 1.2ms | Allocations: 23191)
 
 
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRentalDateToRentals (20200221005024)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "rentals" ADD "rental_date" datetime[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200221005024"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mBoat Load (0.7ms)[0m  [1m[34mSELECT "boats".* FROM "boats" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeTypeToBoatTypeInBoats (20200221005858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aboats" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "boat_type" varchar DEFAULT NULL, "port" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "aboats" ("id","name","boat_type","port","created_at","updated_at")
+                     SELECT "id","name","type","port","created_at","updated_at" FROM "boats"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "boats"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "boats" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "boat_type" varchar DEFAULT NULL, "port" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "boats" ("id","name","boat_type","port","created_at","updated_at")
+                     SELECT "id","name","boat_type","port","created_at","updated_at" FROM "aboats"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aboats"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.7ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200221005858"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBoat Create (0.5ms)[0m  [1m[32mINSERT INTO "boats" ("name", "boat_type", "port", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Barking Dog"], ["boat_type", "skipper"], ["port", "New Orleans"], ["created_at", "2020-02-21 01:01:55.048607"], ["updated_at", "2020-02-21 01:01:55.048607"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCustomer Create (1.2ms)[0m  [1m[32mINSERT INTO "customers" ("name", "destination", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jared"], ["destination", "Mexico"], ["created_at", "2020-02-21 01:01:55.075560"], ["updated_at", "2020-02-21 01:01:55.075560"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBoat Create (0.5ms)[0m  [1m[32mINSERT INTO "boats" ("name", "boat_type", "port", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Barking Dog"], ["boat_type", "skipper"], ["port", "New Orleans"], ["created_at", "2020-02-21 01:03:40.522323"], ["updated_at", "2020-02-21 01:03:40.522323"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("name", "destination", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jared"], ["destination", "Mexico"], ["created_at", "2020-02-21 01:03:40.550268"], ["updated_at", "2020-02-21 01:03:40.550268"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBoat Load (0.1ms)[0m  [1m[34mSELECT "boats".* FROM "boats" WHERE "boats"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRental Create (1.4ms)[0m  [1m[32mINSERT INTO "rentals" ("customer_id", "boat_id", "created_at", "updated_at", "rental_date") VALUES (?, ?, ?, ?, ?)[0m  [["customer_id", 2], ["boat_id", 2], ["created_at", "2020-02-21 01:03:40.587419"], ["updated_at", "2020-02-21 01:03:40.587419"], ["rental_date", "2020-02-21 01:03:40.559978"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY "rentals"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-02-20 19:07:33 -0600
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/codydupuis/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/codydupuis/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 40.8ms | Allocations: 481)
+Completed 200 OK in 71ms (Views: 53.9ms | ActiveRecord: 0.0ms | Allocations: 2952)
+
+
+Started GET "/rentals" for ::1 at 2020-02-20 19:07:35 -0600
+Processing by RentalsController#index as HTML
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" ORDER BY "rentals"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/rentals_controller.rb:8:in `index'
+  Rendering rentals/index.html.erb within layouts/application
+  Rendered rentals/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 127)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 159ms (Views: 121.6ms | ActiveRecord: 1.9ms | Allocations: 24047)
+
+
