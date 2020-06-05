@@ -1,26 +1,20 @@
-import React, {Component} from 'react';
-import reservations from './data.js';
+import React from 'react';
 
+// Arg passed in is a property extracted from props which was passed down to this component 
+// Similarly => const { reservations } = this.props
+const Reservations = ({ reservationData }) => {
 
-export default class Reservations extends Component {
-  constructor() {
-    super()
-    this.state = {
-      data: reservations
-    }
-  }
+  const genRes = reservationData.map((res, index) => {
+    return (
+      <div key={index}> {res.name} | {res.date} </div>
+    )
+  })
 
-  genReservations = () => {
-    return (this.state.data.map(res => {
-      return (
-        <div>
-          {res.name} | {res.date}
-        </div>
-      )
-    }))
-  }
-
-  render() {
-    return this.genReservations();
-  }
+  return (
+    < >
+      {genRes}
+    </>
+  )
 }
+
+export default Reservations;
