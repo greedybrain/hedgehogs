@@ -7,9 +7,9 @@ class ReservationsContainer extends Component {
   constructor() {
     super()
     this.state = {
-      reservationData: reservations,
       name: "",
-      date: ""
+      date: "",
+      reservationsData: reservations
     }
   }
 
@@ -22,20 +22,20 @@ class ReservationsContainer extends Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    const { name, date, reservationData } = this.state
-    const currentAndNewlyAddedReservations = [...reservationData, { name, date }]
+    const { name, date, reservationsData } = this.state
+    const currentAndNewlyAddedReservations = [...reservationsData, { name, date }]
     this.setState({
-      reservationData: currentAndNewlyAddedReservations
+      reservationsData: currentAndNewlyAddedReservations
     })
     event.target.reset()
   }
 
   render() {
-    const { reservationData } = this.state
+    const { reservationsData } = this.state
     return (
       <div>
         <NewReservationForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-        <Reservations reservationData={reservationData} />
+        <Reservations reservationsData={reservationsData} />
       </div>
     );
   }
