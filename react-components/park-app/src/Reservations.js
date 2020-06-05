@@ -11,7 +11,7 @@ const Reservations = ({ reservationsData }) => { // Presentational/Stateless Com
   })
 
   return (
-    // Generating list of divs containing name a date data returned by our map function 
+    // Generating list of divs containing name and date data returned by our map function 
     < >
       {generateReservationsListing}
     </>
