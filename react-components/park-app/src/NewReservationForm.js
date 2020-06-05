@@ -9,6 +9,7 @@ const NewReservationForm = ({ handleChange, handleSubmit }) => { // Presentation
     <form className="form"
       onChange={handleChange}
       onSubmit={handleSubmit}>
+      <h2>Create a Reservation</h2>
       <input
         type='text'
         name='name' 
