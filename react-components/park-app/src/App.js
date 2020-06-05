@@ -1,17 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Welcome from './Welcome'
-import NewReservationFrom from './NewReservationForm'
-import reservations from './data'
-import Reservations from './Reservations'
+import ReservationContainer from './ReservationContainer'
 
 function App() {
   return (
     <div className="App">
       <Welcome />
-      <NewReservationFrom />
-      <Reservations data={reservations} />
+      <ReservationContainer />
     </div>
   );
 }
