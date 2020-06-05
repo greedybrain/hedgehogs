@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     font-family: 'Special Elite', cursive;
+}
+
+::-webkit-scrollbar {
+     display: none;
+}
+
+.welcome-msg {
+     font-size: 2.5rem;
+     text-align: center;
+     height: 10vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding-top: 40px;
+}
+
+.form-and-res-cont {
+     display: flex;
+     flex-direction: row-reverse;
+     align-items: center;
+     justify-content: space-between;
+     height: 70vh;
+     padding: 0 250px;
+
+     .form {
+          width: 175px;
+          text-align: center;
+          font-size: 1.2rem;
+     
+          input {
+               display: inline-block;
+               width: 100%;
+               margin-top: 5px;
+               height: 30px;
+               outline: none;
+               padding-left: 5px;
+               font-size: 1rem;
+               font-family: 'Special Elite',
+               cursive;
+               margin-bottom: 20px;
+               border-radius: 5px;
+               border: 1px solid #d3d3d3;
+               text-align: center;
+               letter-spacing: 2px;
+          }
+     
+          .sub-btn {
+               height: 35px;
+               width: 100%;
+               cursor: pointer;
+               border: none;
+               background-color: #333;
+               color: #fff;
+               border-radius: 5px;
+               outline: none;
+               font-size: 1.1rem;
+               letter-spacing: 2px;
+          }
+     }
+
+     .res-area {
+          overflow-y: scroll;
+          max-height: 400px;
+          .reservation-item {
+               font-size: 1.5rem;
+               margin-bottom: 20px;
+          }
+     }
+}
+

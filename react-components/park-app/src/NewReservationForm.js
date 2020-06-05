@@ -6,21 +6,20 @@ const NewReservationForm = ({ handleChange, handleSubmit }) => { // Presentation
 
   return (
     // Could we have left the handleChange call inside the form tag itself, instead of moving the call to each input (hmm)? 
-    <form
+    <form className="form"
+      onChange={handleChange}
       onSubmit={handleSubmit}>
-      Name:
       <input
-        onChange={handleChange}
         type='text'
         name='name' 
-      />
-      Date:
+        placeholder="Name"
+      /><br/>
       <input
-        onChange={handleChange}
         type='text'
         name='date' 
-      />
-      <input type='submit'></input>
+        placeholder="Date"
+      /><br/ >
+      <button className="sub-btn" type='submit'>Submit</button>
     </form>
   )
 }

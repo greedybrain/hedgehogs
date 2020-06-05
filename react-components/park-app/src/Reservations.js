@@ -6,7 +6,11 @@ const Reservations = ({ reservationsData }) => { // Presentational/Stateless Com
   const generateReservationsListing = reservationsData.map((res, index) => {
     return (
       // Adding unique key to each div generated to get rid of that annoying 'unique-key-required' warning
-      <div key={index}> {res.name} | {res.date} </div>
+      <div
+        className = "reservation-item animate__animated animate__zoomIn animate__faster"
+        key={index}>
+        {res.name} | {res.date}
+      </div>
     )
   })
 

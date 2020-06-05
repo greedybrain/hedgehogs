@@ -30,6 +30,8 @@ class ReservationsContainer extends Component { // Container/ Stateful Component
     // Used spread operator to get initial reservations then adds new one upon form submission
     const currentAndNewlyAddedReservations = [...reservationsData, { name, date }]
     this.setState({
+      name: '',
+      date: '',
       reservationsData: currentAndNewlyAddedReservations
     })
     event.target.reset()
@@ -39,9 +41,13 @@ class ReservationsContainer extends Component { // Container/ Stateful Component
     // Extracting reservationsData from this.state 
     const { reservationsData } = this.state
     return (
-      <div>
-        <NewReservationForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-        <Reservations reservationsData={reservationsData} />
+      <div className="form-and-res-cont">
+        <div className="form-area">
+          <NewReservationForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+        </div>
+        <div className="res-area">
+          <Reservations reservationsData={reservationsData} />
+        </div>
       </div>
     );
   }
