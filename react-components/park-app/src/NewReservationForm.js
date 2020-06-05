@@ -8,7 +8,9 @@ const NewReservationForm = ({ handleChange, handleSubmit }) => { // Presentation
     // Could we have left the handleChange call inside the form tag itself, instead of moving the call to each input (hmm)? 
     <form className="form"
       onChange={handleChange}
-      onSubmit={handleSubmit}>
+      onSubmit={handleSubmit}
+      autoComplete="off"
+    >
       <h2>Create a Reservation</h2>
       <input
         type='text'

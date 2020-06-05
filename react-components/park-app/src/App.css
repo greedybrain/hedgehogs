@@ -81,12 +81,18 @@ body {
   width: 100%;
   cursor: pointer;
   border: none;
-  background-color: #333;
+  background-color: #3b3b3b;
   color: #fff;
   border-radius: 5px;
   outline: none;
   font-size: 1.1rem;
   letter-spacing: 2px;
+}
+
+.form-and-res-cont .form .sub-btn:hover {
+  background-color: #000;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
 }
 
 .form-and-res-cont .res-area {
