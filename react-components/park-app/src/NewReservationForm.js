@@ -4,7 +4,8 @@ import React from 'react';
 // Similarly => const { handleChange, handleSubmit } = this.props
 const NewReservationForm = ({ handleChange, handleSubmit }) => {
 
-  return(
+  return (
+    // Could we have left the handleChange call inside the form tag itself, instead of moving the call to each input? 
     <form
       onSubmit={handleSubmit}>
       Name:
