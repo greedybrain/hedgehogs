@@ -4,7 +4,7 @@ import NewReservationForm from './NewReservationForm';
 import reservations from './data'
 
 // Top most level component as far as dealing with the inner workings of Reservations 
-class ReservationsContainer extends Component { // Container/ Stateless Component
+class ReservationsContainer extends Component { // Container/ Stateful Component
   constructor() {
     super()
     // Not too sure if it was a great idea to lift the state of the form inputs up to this component, but hey, it works
