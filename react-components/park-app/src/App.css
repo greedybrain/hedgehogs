@@ -28,7 +28,6 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding-top: 40px;
-  margin-bottom: 50px;
 }
 
 .form-and-res-cont {
@@ -46,17 +45,18 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 70vh;
-  padding: 0 150px;
+  padding: 50px 150px 0 150px;
 }
 
 .form-and-res-cont .form {
-  width: 300px;
+  width: 325px;
   text-align: center;
   font-size: 1.2rem;
+  padding: 50px;
 }
 
 .form-and-res-cont .form h2 {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   letter-spacing: 2px;
 }
 

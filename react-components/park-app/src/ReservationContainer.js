@@ -7,34 +7,19 @@ import reservations from './data'
 class ReservationsContainer extends Component { // Container/ Stateful Component
   constructor() {
     super()
-    // Not too sure if it was a great idea to lift the state of the form inputs up to this component, but hey, it works
+
     this.state = {
-      name: "",
-      date: "",
       reservationsData: reservations
     }
   }
 
-  handleChange = (event) => {
-    // Getting input value based on name attribute - Thanks Alina 
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
+  handleAddReservation = reservation => {
+    const { reservationsData } = this.state
 
-  handleSubmit = event => {
-    event.preventDefault()
-    
-    // Destructuring the sugar-honey-ice-tea out of state
-    const { name, date, reservationsData } = this.state 
-    // Used spread operator to get initial reservations then adds new one upon form submission
-    const currentAndNewlyAddedReservations = [...reservationsData, { name, date }]
+    const currentAndNewlyAddedReservations = [ ...reservationsData, reservation]
     this.setState({
-      name: '',
-      date: '',
       reservationsData: currentAndNewlyAddedReservations
     })
-    event.target.reset()
   }
 
   render() {
@@ -43,7 +28,10 @@ class ReservationsContainer extends Component { // Container/ Stateful Component
     return (
       <div className="form-and-res-cont">
         <div className="form-area">
-          <NewReservationForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+          <NewReservationForm 
+          reservationsData={reservationsData}
+          handleAddReservation={this.handleAddReservation}
+          />
         </div>
         <div className="res-area">
           <Reservations reservationsData={reservationsData} />
