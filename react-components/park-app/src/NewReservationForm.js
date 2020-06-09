@@ -12,23 +12,33 @@ class NewReservationForm extends Component {
     }
   }
 
+  get getProps() {
+
+    return this.props
+
+  }
+
   handleChange = (event) => {
+
     // Getting input value based on name attribute - Thanks Alina 
     this.setState({
       [event.target.name]: event.target.value
     })
+
   }
 
   handleSubmit = event => {
+
     event.preventDefault()
     
-    const { handleAddReservation } = this.props
-    handleAddReservation(this.state)
+    this.getProps.handleAddReservation(this.state)
 
     event.target.reset()
+
   }
 
   render() {
+
     return (
       // Could we have left the handleChange call inside the form tag itself, instead of moving the call to each input (hmm)? 
       <form className="form"
@@ -51,6 +61,7 @@ class NewReservationForm extends Component {
         <button className="sub-btn" type='submit'>Submit</button>
       </form>
     )
+    
   }
 }
 
