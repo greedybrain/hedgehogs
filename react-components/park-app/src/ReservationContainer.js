@@ -15,31 +15,30 @@ class ReservationsContainer extends Component { // Container/ Stateful Component
 
   }
 
-  get getState() {
+  getState() {
     return this.state
   }
 
   handleAddReservation = reservation => {
 
     this.setState({
-      reservationsData: [ ...this.getState.reservationsData, reservation]
+      reservationsData: [ ...this.getState().reservationsData, reservation]
     })
 
   }
 
   render() {
-
-    // Extracting reservationsData from this.state 
+    const resData = this.getState().reservationsData
     return (
       <div className="form-and-res-cont">
         <div className="form-area">
           <NewReservationForm 
-          reservationsData={this.getState.reservationsData}
+          reservationsData={resData}
           handleAddReservation={this.handleAddReservation}
           />
         </div>
         <div className="res-area">
-          <Reservations reservationsData={this.getState.reservationsData} />
+          <Reservations reservationsData={resData} />
         </div>
       </div>
     );

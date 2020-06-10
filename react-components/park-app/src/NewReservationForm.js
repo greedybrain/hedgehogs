@@ -12,7 +12,7 @@ class NewReservationForm extends Component {
     }
   }
 
-  get getProps() {
+  getProps() {
 
     return this.props
 
@@ -31,7 +31,7 @@ class NewReservationForm extends Component {
 
     event.preventDefault()
     
-    this.getProps.handleAddReservation(this.state)
+    this.getProps().handleAddReservation(this.state)
 
     event.target.reset()
 
@@ -61,7 +61,7 @@ class NewReservationForm extends Component {
         <button className="sub-btn" type='submit'>Submit</button>
       </form>
     )
-    
+
   }
 }
 
