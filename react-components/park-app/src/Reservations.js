@@ -1,26 +1,7 @@
-import React, {Component} from 'react';
-import reservations from './data.js';
+import React from 'react';
 
 
-export default class Reservations extends Component {
-  constructor() {
-    super()
-    this.state = {
-      data: reservations
-    }
-  }
+const Reservations = props => props.data.map((res, index) => <div key={index}>{res.name} | {res.date}</div>) 
 
-  genReservations = () => {
-    return (this.state.data.map(res => {
-      return (
-        <div>
-          {res.name} | {res.date}
-        </div>
-      )
-    }))
-  }
+export default Reservations
 
-  render() {
-    return this.genReservations();
-  }
-}
