@@ -1,50 +1,33 @@
 import React, { Component } from 'react';
 import Reservations from './Reservations';
 import NewReservationForm from './NewReservationForm';
-import reservations from './data'
+import { connect } from 'react-redux'
 
 // Top most level component as far as dealing with the inner workings of Reservations 
 class ReservationsContainer extends Component { // Container/ Stateful Component
-  constructor() {
-
-    super()
-
-    this.state = {
-      reservationsData: reservations
-    }
-
-  }
-
-  getState() {
-    return this.state
-  }
-
-  handleAddReservation = reservation => {
-
-    this.setState({
-      reservationsData: [ ...this.getState().reservationsData, reservation]
-    })
-
-  }
 
   render() {
-    const resData = this.getState().reservationsData
+    const { reservations } = this.props
     return (
       <div className="form-and-res-cont">
         <div className="form-area">
           <NewReservationForm 
-          reservationsData={resData}
-          handleAddReservation={this.handleAddReservation}
+          reservations={reservations}
           />
         </div>
         <div className="res-area">
-          <Reservations reservationsData={resData} />
+          <Reservations reservations={reservations} />
         </div>
       </div>
     );
 
   }
-
 }
 
-export default ReservationsContainer;
+const mapStateToProps = state => {
+  return {
+    reservations: state.reservations
+  }
+}
+
+export default connect(mapStateToProps, {})(ReservationsContainer);

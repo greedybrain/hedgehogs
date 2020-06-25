@@ -1,9 +1,10 @@
 import React from 'react';
 
 // Arg/s passed in the function below is a property extracted from props which was passed down to this component – Similarly => const { reservations } = this.props
-const Reservations = ({ reservationsData }) => { // Presentational/Stateless Component 
-
-  const generateReservationsListing = reservationsData.map((res, index) => {
+const Reservations = ({ reservations }) => { // Presentational/Stateless Component 
+  
+  const generateReservationsListing = reservations.map((res, index) => {
+    
     return (
       // Adding unique key to each div generated to get rid of that annoying 'unique-key-required' warning
       <div

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addReservation } from './reducers/manageReservations'
 
 // Arg/s passed in is a property extracted from props which was passed down to this component 
 // Similarly => const { handleChange, handleSubmit } = this.props
@@ -10,12 +12,6 @@ class NewReservationForm extends Component {
       name: '',
       date: ''
     }
-  }
-
-  getProps() {
-
-    return this.props
-
   }
 
   handleChange = (event) => {
@@ -31,9 +27,12 @@ class NewReservationForm extends Component {
 
     event.preventDefault()
     
-    this.getProps().handleAddReservation(this.state)
-
-    event.target.reset()
+    const { name, date } = this.state
+    this.props.addReservation(name, date)
+    this.setState({
+      name: '',
+      date: ''
+    })
 
   }
 
@@ -51,12 +50,14 @@ class NewReservationForm extends Component {
           type='text'
           name='name' 
           placeholder="Name"
+          value={this.state.name}
         /><br/>
         <input
           onChange={this.handleChange}
           type='text'
           name='date' 
           placeholder="Date"
+          value={this.state.date}
         /><br/ >
         <button className="sub-btn" type='submit'>Submit</button>
       </form>
@@ -65,5 +66,10 @@ class NewReservationForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addReservation: (name, date) => dispatch(addReservation(name, date)) 
+  }
+}
 
-export default NewReservationForm
+export default connect(null, mapDispatchToProps)(NewReservationForm)
